@@ -1,4 +1,4 @@
-from django.contrib.auth.token import PasswordResetTokenGenerator
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
 from six import text_type
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -6,3 +6,5 @@ class TokenGenerator(PasswordResetTokenGenerator):
         return(
             text_type(user.pk) + text_type(timestamp)
         )
+    
+generate_token = TokenGenerator()
